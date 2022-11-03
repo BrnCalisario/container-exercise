@@ -1,0 +1,20 @@
+{
+  "name": "trab_arquitetura",
+  "version": "1.0.0",
+  "description": "Trabalho utilizando docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx prisma migrate dev --name init && nodemon --legacy-watch index.js"
+  },
+  "author": "Bruno, Fernando e Vinicius",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "prisma": "^4.5.0"
+  }
+}
