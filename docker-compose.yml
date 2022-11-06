@@ -7,22 +7,19 @@ services:
     volumes:
       - game-mysql-data:/var/lib/mysql
     environment:
-      MYSQL_HOST: ${DB_HOST}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: jogos
+      MYSQL_ROOT_PASSWORD: root
     ports:
       - "3388:3306"
 
-
   app:
     build: .
-    command: npm start
     ports:
      - "3000:3000"
     volumes:
      - .:/usr/app
-
-  
+    depends_on:
+      - "mysql"
 
 volumes:
   game-mysql-data:

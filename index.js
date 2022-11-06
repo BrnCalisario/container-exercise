@@ -11,7 +11,11 @@ app.use(express.json())
 
 app.get('/jogo', async (req, res) => {
     const jogos = await prisma.jogo.findMany()
-    res.json(jogos)
+    if(jogos.length != 0){
+        res.json(jogos)
+    }else{
+        res.json({msg:"Nenhum jogo foi encontrado"})
+    }
 })
 
 app.post('/jogo', async (req, res) => {
@@ -46,7 +50,7 @@ app.post('/categoria', async (req, res) => {
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Hello World teste');
 });
 
 app.listen(PORT, HOST);
