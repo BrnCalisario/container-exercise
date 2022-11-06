@@ -22,5 +22,6 @@ model Jogo {
   nome           String    @db.VarChar(255)
   dataLancamento String    @db.VarChar(10)
   categoria      Categoria @relation(fields: [categoriaId], references: [id])
-  categoriaId    Int       @unique
+  categoriaId    Int       
+
 }
